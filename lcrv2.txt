@@ -1,0 +1,284 @@
+#encoding:utf-8
+from __future__ import division
+f = open("C:/Users/composites/Desktop/1.txt","w")
+
+
+#设定x增加的步长为tx，x向的网格数为n，lx即为液滴长度
+lx=74
+tx=lx/50
+
+
+inp1=tx*99
+inp1s=str(inp1)
+
+inp2=tx*25
+inp2s=str(inp2)
+
+inp3=tx*75
+inp3s=str(inp3)
+
+qsj="*Part,name=Part-cf"
+qsj=qsj+"\n"+"**碳纤维直径为7微米"
+qsj=qsj+"\n"+"*node"
+qsj=qsj+"\n"+"1,-1,-1,0"
+qsj=qsj+"\n"+"21,1,-1,0"
+qsj=qsj+"\n"+"621,1,1,0"
+qsj=qsj+"\n"+"601,-1,1,0"
+qsj=qsj+"\n"+"800,0,0,0"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*ngen,nset=line1"
+qsj=qsj+"\n"+"1,21,2"
+qsj=qsj+"\n"+"*ngen,nset=line3"
+qsj=qsj+"\n"+"601,621,2"
+qsj=qsj+"\n"+"*nfill,nset=square"
+qsj=qsj+"\n"+"line1,line3,10,60"
+qsj=qsj+"\n"+"*nset,nset=line2"
+qsj=qsj+"\n"+"21,81,141,201,261,321,381,441,501,561,621"
+qsj=qsj+"\n"+"*nset,nset=line4"
+qsj=qsj+"\n"+"1,61,121,181,241,301,361,421,481,541,601"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*node"
+qsj=qsj+"\n"+"9001,-2.475,-2.475,0"
+qsj=qsj+"\n"+"9021,2.475,-2.475,0"
+qsj=qsj+"\n"+"9621,2.475,2.475,0"
+qsj=qsj+"\n"+"9601,-2.475,2.475,0"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle1"
+qsj=qsj+"\n"+"9001,9021,2,800"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle2"
+qsj=qsj+"\n"+"9021,9621,60,800"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle3"
+qsj=qsj+"\n"+"9621,9601,-2,800"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle4"
+qsj=qsj+"\n"+"9601,9001,-60,800"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*nfill,nset=yuan1"
+qsj=qsj+"\n"+"line1,circle1,9,1000"
+qsj=qsj+"\n"+"*nfill,nset=yuan2"
+qsj=qsj+"\n"+"line2,circle2,9,1000"
+qsj=qsj+"\n"+"*nfill,nset=yuan3"
+qsj=qsj+"\n"+"line3,circle3,9,1000"
+qsj=qsj+"\n"+"*nfill,nset=yuan4"
+qsj=qsj+"\n"+"line4,circle4,9,1000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*nset,nset=yuan"
+qsj=qsj+"\n"+"yuan1,yuan2,yuan3,yuan4"
+qsj=qsj+"\n"+"*nset,nset=basenode1"
+qsj=qsj+"\n"+"yuan,square"
+qsj=qsj+"\n"+"****************************以下的1个237.6为tx*99.如改变tx，需要改变相应的值"
+qsj=qsj+"\n"+"*ncopy,oldset=basenode1,newset=basenode100,changenumber=990000,shift"
+qsj=qsj+"\n"+"0,0,"+inp1s
+qsj=qsj+"\n"+"*nfill,nset=fibernode"
+qsj=qsj+"\n"+"basenode1,basenode100,99,10000"
+qsj=qsj+"\n"+"*element,type=c3d8r"
+qsj=qsj+"\n"+"1,1,3,63,61,10001,10003,10063,10061"
+qsj=qsj+"\n"+"*elgen,elset=cfinner"
+qsj=qsj+"\n"+"1,10,2,2,10,60,60,99,10000,10000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=c3d8r"
+qsj=qsj+"\n"+"1001,1001,1003,3,1,11001,11003,10003,10001"
+qsj=qsj+"\n"+"*elgen,elset=cfout1"
+qsj=qsj+"\n"+"1001,10,2,2,9,1000,1000,99,10000,10000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=c3d8r"
+qsj=qsj+"\n"+"1021,1021,1081,81,21,11021,11081,10081,10021"
+qsj=qsj+"\n"+"*elgen,elset=cfout1"
+qsj=qsj+"\n"+"1021,10,60,60,9,1000,1000,99,10000,10000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=c3d8r"
+qsj=qsj+"\n"+"1621,1621,1619,619,621,11621,11619,10619,10621"
+qsj=qsj+"\n"+"*elgen,elset=cfout1"
+qsj=qsj+"\n"+"1621,10,-2,-2,9,1000,1000,99,10000,10000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=c3d8r"
+qsj=qsj+"\n"+"1601,1601,1541,541,601,11601,11541,10541,10601"
+qsj=qsj+"\n"+"*elgen,elset=cfout1"
+qsj=qsj+"\n"+"1601,10,-60,-60,9,1000,1000,99,10000,10000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**以下建立界面"
+qsj=qsj+"\n"+"**********************************"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*************************************以下的4个60为tx*25.如改变tx，需要改变相应的值"
+qsj=qsj+"\n"+"*node"
+qsj=qsj+"\n"+"1259001,-2.475,-2.475,"+inp2s
+qsj=qsj+"\n"+"1259021,2.475,-2.475,"+inp2s
+qsj=qsj+"\n"+"1259621,2.475,2.475,"+inp2s
+qsj=qsj+"\n"+"1259601,-2.475,2.475,"+inp2s
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle251"
+qsj=qsj+"\n"+"1259001,1259021,2,250311"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle252"
+qsj=qsj+"\n"+"1259021,1259621,60,250311"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle253"
+qsj=qsj+"\n"+"1259601,1259621,2,250311"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle254"
+qsj=qsj+"\n"+"1259001,1259601,60,250311"
+qsj=qsj+"\n"+"*************************************以下的4个180为tx*75.如改变tx，需要改变相应的值"
+qsj=qsj+"\n"+"*node"
+qsj=qsj+"\n"+"1759001,-2.475,-2.475,"+inp3s
+qsj=qsj+"\n"+"1759021,2.475,-2.475,"+inp3s
+qsj=qsj+"\n"+"1759621,2.475,2.475,"+inp3s
+qsj=qsj+"\n"+"1759601,-2.475,2.475,"+inp3s
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle751"
+qsj=qsj+"\n"+"1759001,1759021,2,750311"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle752"
+qsj=qsj+"\n"+"1759021,1759621,60,750311"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle753"
+qsj=qsj+"\n"+"1759601,1759621,2,750311"
+qsj=qsj+"\n"+"*ngen,line=c,nset=circle754"
+qsj=qsj+"\n"+"1759001,1759601,60,750311"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*nset,nset=circle25"
+qsj=qsj+"\n"+"circle251,circle252,circle253,circle254"
+qsj=qsj+"\n"+"*nset,nset=circle75"
+qsj=qsj+"\n"+"circle751,circle752,circle753,circle754"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*nfill,nset=cohnode"
+qsj=qsj+"\n"+"circle25,circle75,50,10000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=coh3d8"
+qsj=qsj+"\n"+"1259001,1259001,1259003,1269003,1269001,259001,259003,269003,269001"
+qsj=qsj+"\n"+"*elgen,elset=coh1"
+qsj=qsj+"\n"+"1259001,10,2,2,50,10000,10000,1,1000000,1000000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=coh3d8"
+qsj=qsj+"\n"+"1259021,1259021,1259081,1269081,1269021,259021,259081,269081,269021"
+qsj=qsj+"\n"+"*elgen,elset=coh2"
+qsj=qsj+"\n"+"1259021,10,60,60,50,10000,10000,1,1000000,1000000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=coh3d8"
+qsj=qsj+"\n"+"1259621,1259621,1259619,1269619,1269621,259621,259619,269619,269621"
+qsj=qsj+"\n"+"*elgen,elset=coh3"
+qsj=qsj+"\n"+"1259621,10,-2,-2,50,10000,10000,1,1000000,1000000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*element,type=coh3d8"
+qsj=qsj+"\n"+"1259601,1259601,1259541,1269541,1269601,259601,259541,269541,269601"
+qsj=qsj+"\n"+"*elgen,elset=coh4"
+qsj=qsj+"\n"+"1259601,10,-60,-60,50,10000,10000,1,1000000,1000000"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"*elset,elset=coh"
+qsj=qsj+"\n"+"coh1,coh2,coh3,coh4"
+qsj=qsj+"\n"+"**"
+qsj=qsj+"\n"+"**下面建立液滴"
+qsj=qsj+"\n"+"***********************************************"
+
+print >> f,qsj
+
+
+
+for n in range(-25,26):
+    x=n*tx
+    y=42-0.03*x*x
+    xt=lx+x
+    yt=(3.5+y)/1.414
+
+
+    node1=11259001+10000*(n+25)
+    node2=11259021+10000*(n+25)
+    node3=11259621+10000*(n+25)
+    node4=11259601+10000*(n+25)
+
+
+    node1s=str(node1)
+    node2s=str(node2)
+    node3s=str(node3)
+    node4s=str(node4)
+    xts=str(xt)
+    yts=str(yt)
+    nodeline1="*node"+"\n"+node1s+","+"-"+yts+","+"-"+yts+","+xts
+    nodeline2="\n"+node2s+","+yts+","+"-"+yts+","+xts
+    nodeline3="\n"+node3s+","+yts+","+yts+","+xts
+    nodeline4="\n"+node4s+","+"-"+yts+","+yts+","+xts+"\n"
+    nodeline=nodeline1+nodeline2+nodeline3+nodeline4
+    
+    nt=n+50
+    nts=str(nt)
+    mid=311+nt*10000
+    mids=str(mid)
+    ngenline1="*ngen,line=c,nset=circle"+nts+"1out"+"\n"+node1s+","+node2s+",2,"+mids+"\n"
+    ngenline2="*ngen,line=c,nset=circle"+nts+"2out"+"\n"+node2s+","+node3s+",60,"+mids+"\n"
+    ngenline3="*ngen,line=c,nset=circle"+nts+"3out"+"\n"+node4s+","+node3s+",2,"+mids+"\n"
+    ngenline4="*ngen,line=c,nset=circle"+nts+"4out"+"\n"+node1s+","+node4s+",60,"+mids+"\n"
+    ngenline=ngenline1+ngenline2+ngenline3+ngenline4
+    
+    
+    
+    inode1=1259001+10000*(n+25)
+    inode2=1259021+10000*(n+25)
+    inode3=1259621+10000*(n+25)
+    inode4=1259601+10000*(n+25)
+    inode1s=str(inode1)
+    inode2s=str(inode2)
+    inode3s=str(inode3)
+    inode4s=str(inode4)
+    nsetline1="*nset,nset=circle"+nts+"1in,generate"+"\n"+inode1s+","+inode2s+",2"+"\n"
+    nsetline2="*nset,nset=circle"+nts+"2in,generate"+"\n"+inode2s+","+inode3s+",60"+"\n"
+    nsetline3="*nset,nset=circle"+nts+"3in,generate"+"\n"+inode4s+","+inode3s+",2"+"\n"
+    nsetline4="*nset,nset=circle"+nts+"4in,generate"+"\n"+inode1s+","+inode4s+",60"+"\n"
+    nsetline=nsetline1+nsetline2+nsetline3+nsetline4
+
+    
+    nfillline1="*nset,nset=circle"+nts+"in"+"\n"+"circle"+nts+"1in,"+"circle"+nts+"2in,"+"circle"+nts+"3in,"+"circle"+nts+"4in,"+"\n"
+    nfillline2="*nset,nset=circle"+nts+"out"+"\n"+"circle"+nts+"1out,"+"circle"+nts+"2out,"+"circle"+nts+"3out,"+"circle"+nts+"4out,"+"\n"
+    nfillline3="*nfill,nset=yuan"+nts+"\n"+"circle"+nts+"in,"+"circle"+nts+"out,"+"10,1000000"+"\n"
+    nfillline=nfillline1+nfillline2+nfillline3
+
+    if n == 25:
+       stop="********************************************************************************截取以上部分"
+       
+    else:
+        stop="**"
+    content=nodeline+ngenline+nsetline+nfillline+stop
+
+    print >> f,content
+
+
+
+qsja="***************************************以上为液滴"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"*element,type=c3d8r"
+qsja=qsja+"\n"+"2259001,1259001,1259003,1269003,1269001,2259001,2259003,2269003,2269001"
+qsja=qsja+"\n"+"*elgen,elset=ydinele1"
+qsja=qsja+"\n"+"2259001,10,2,2,10,1000000,1000000,50,10000,10000"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"*element,type=c3d8r"
+qsja=qsja+"\n"+"2259021,1259021,1259081,1269081,1269021,2259021,2259081,2269081,2269021"
+qsja=qsja+"\n"+"*elgen,elset=ydinele2"
+qsja=qsja+"\n"+"2259021,10,60,60,10,1000000,1000000,50,10000,10000"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"*element,type=c3d8r"
+qsja=qsja+"\n"+"2259621,1259621,1259619,1269619,1269621,2259621,2259619,2269619,2269621"
+qsja=qsja+"\n"+"*elgen,elset=ydinele3"
+qsja=qsja+"\n"+"2259621,10,-2,-2,10,1000000,1000000,50,10000,10000"
+qsja=qsja+"\n"+"**"
+qsja=qsja+"\n"+"*element,type=c3d8r"
+qsja=qsja+"\n"+"2259601,1259601,1259541,1269541,1269601,2259601,2259541,2269541,2269601"
+qsja=qsja+"\n"+"*elgen,elset=ydinele4"
+qsja=qsja+"\n"+"2259601,10,-60,-60,10,1000000,1000000,50,10000,10000"
+qsja=qsja+"\n"+"*elset,elset=aaayedi"
+qsja=qsja+"\n"+"ydinele1,ydinele2,ydinele3,ydinele4"
+
+print >> f,qsja
+
+
+
+
+
+
+
+    
+f.close()
