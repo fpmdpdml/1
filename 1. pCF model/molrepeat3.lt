@@ -1,0 +1,21 @@
+import "mol_ring.lt"
+import "mol_no_ring_left.lt"  
+import "mol_no_ring_right.lt" 
+import "forcefield.lt" 
+import "molrepeat.lt"
+import "add.lt" 
+import "molrepeat2.lt"
+
+# move in transverse direction 
+
+Molrepeat3 inherits Forcefield {
+
+ create_var {$mol}  # optional:force all monomers to share the same molecule-ID
+  
+
+CF1 = new Molrepeat[6].move(15.5,0,0)
+CF2 = new Molrepeat2[6].move(15.5,0,0)
+  
+  
+
+} # end of "Molrepeat3" type definition

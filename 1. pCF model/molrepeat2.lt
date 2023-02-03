@@ -1,0 +1,19 @@
+import "mol_ring.lt"
+import "mol_no_ring_left.lt"  
+import "mol_no_ring_right.lt"  
+import "forcefield.lt" 
+import "add.lt" 
+import "molrepeat.lt"
+
+# mirror in transverse direction
+
+Molrepeat2 inherits Forcefield {
+
+ create_var {$mol}  # optional:force all monomers to share the same molecule-ID
+
+
+
+CF = new Molrepeat.rot(180, 0,1,0).move(8.5,0,0)  
+
+
+} # end of "Molrepeat2" type definition

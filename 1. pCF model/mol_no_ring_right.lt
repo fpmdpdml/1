@@ -1,0 +1,43 @@
+import "forcefield.lt" 
+
+Mol_no_ring_right inherits Forcefield {
+
+  ### 继承力场文件
+
+
+#  write_once("In Init") {
+#    atom_style full
+#    units          real
+#    pair_style     lj/charmm/coul/charmm 10.0 12.0
+#    special_bonds  lj/coul 0.0 0.0 1.0 extra 10000 dihedral yes
+#    bond_style     harmonic
+#    angle_style    harmonic
+#    dihedral_style harmonic
+#    improper_style harmonic
+#  }
+
+
+  ### DATA文件
+
+  write("Data Atoms") {
+    $atom:N5 $mol:ml @atom:4_N_sp 0.000000 -1.4 -37.2 0
+    $atom:C13 $mol:ml @atom:0_C_sp 0.000000 -0.7 -36 0 
+    $atom:C14 $mol:ml @atom:14_C_sp3 0.000000 0.7 -36 0 
+    $atom:H7 $mol:ml @atom:0_H 0.000000 1.7 -36 0
+    $atom:C15 $mol:ml @atom:7_C_sp3 0.000000 1.4 -37.2 0	
+    $atom:H8 $mol:ml @atom:4_H 0.000000 1.9 -37.2 0.87
+    $atom:H9 $mol:ml @atom:4_H 0.000000 1.9 -37.2 -0.87
+  }
+
+  write("Data Bonds") {
+    $bond:id33 @bond:type0CN $atom:C13 $atom:N5	
+    $bond:id34 @bond:type5C13C14 $atom:C13 $atom:C14
+    $bond:id35 @bond:type8C14H7 $atom:C14 $atom:H7
+    $bond:id36 @bond:type0C3C3 $atom:C14 $atom:C15
+    $bond:id37 @bond:type58CH $atom:C15 $atom:H8
+    $bond:id38 @bond:type58CH $atom:C15 $atom:H9
+  }
+
+
+
+} # end of "Mol" type definition

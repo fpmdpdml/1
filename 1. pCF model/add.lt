@@ -1,0 +1,38 @@
+import "forcefield.lt" 
+
+Mol_add inherits Forcefield {
+
+
+
+#  write_once("In Init") {
+#    atom_style full
+#    units          real
+#    pair_style     lj/charmm/coul/charmm 10.0 12.0
+#    special_bonds  lj/coul 0.0 0.0 1.0 extra 10000 dihedral yes
+#    bond_style     harmonic
+#    angle_style    harmonic
+#    dihedral_style harmonic
+#    improper_style harmonic
+#  }
+
+
+  ### DATA文件
+
+  write("Data Atoms") {
+    $atom:BC13 $mol:ml @atom:0_C_sp2 0.000000 -0.7 -33.6 0 
+    $atom:BC14 $mol:ml @atom:14_C_sp2 0.000000 0.7 -33.6 0 
+    $atom:BC15 $mol:ml @atom:7_C_sp3 0.000000 1.4 -34.8 0	
+    $atom:BH8 $mol:ml @atom:4_H 0.000000 1.9 -34.8 0.87
+    $atom:BH9 $mol:ml @atom:4_H 0.000000 1.9 -34.8 -0.87	
+  }
+
+  write("Data Bonds") {
+    $bond:b125 @bond:type13CC $atom:BC13 $atom:BC14	
+    $bond:b126 @bond:type0C3C3 $atom:BC15 $atom:BC14	
+    $bond:b127 @bond:type58CH $atom:BC15 $atom:BH8
+    $bond:b128 @bond:type58CH $atom:BC15 $atom:BH9
+  }
+
+
+
+} # end of "Mol" type definition
