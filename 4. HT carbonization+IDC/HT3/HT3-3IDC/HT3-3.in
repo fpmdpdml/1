@@ -1,0 +1,248 @@
+clear
+units          real
+boundary       p p p
+atom_style     full
+neighbor       2.0 nsq
+neigh_modify   every 1 delay 0 page 100000 one 10000
+dielectric     1
+kspace_style   pppm 1.0e-5
+pair_style     hybrid/overlay buck/coul/long 10.0 hbond/dreiding/lj 4 9 11 178.6
+bond_style     harmonic
+angle_style    harmonic
+dihedral_style harmonic
+improper_style umbrella
+special_bonds  dreiding
+read_data      HT3-3.data extra/bond/per/atom 300 extra/angle/per/atom 300 extra/dihedral/per/atom 300 extra/improper/per/atom 300 extra/special/per/atom 300
+
+pair_coeff 1   1  buck/coul/long 12597.22086 0.30518     373.38095 25
+pair_coeff 1	2 buck/coul/long	13963.50747	0.314862894	499.2373923 25
+pair_coeff 1	3	buck/coul/long 12597.22086	0.305175	373.3809463 25
+pair_coeff 1	4	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 1	5	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 1	6	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 1	7	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 1	8	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 1	9	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 1	10	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 1	11 buck/coul/long	13963.50747	0.314862894	499.2373923 25
+pair_coeff 1	12	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 1	13	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 1	14	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 1	15	buck/coul/long 12597.22086	0.305175	373.3809463 25
+pair_coeff 1	16	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 1	17	buck/coul/long 12597.22086	0.305175	373.3809463 25
+pair_coeff 1	18 buck/coul/long	13963.50747	0.314862894	499.2373923 25
+pair_coeff 2   2   buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 2	3	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 2	4	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 2	5	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 2	6	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 2	7	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 2	8	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 2	9	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 2	10	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 2	11	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 2	12	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 2	13	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 2	14	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 2	15	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 2	16	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 2	17	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 2   18   buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 3   3   buck/coul/long 12597.22086 0.30518     373.38095  25
+pair_coeff 3	4	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 3	5	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 3	6	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 3	7	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 3	8	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 3	9	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 3	10	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 3	11	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 3	12	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 3	13	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 3	14	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 3	15	buck/coul/long 12597.22086	0.305175	373.3809463 25
+pair_coeff 3	16	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 3	17	buck/coul/long 12597.22086	0.305175	373.3809463 25
+pair_coeff 3	18	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 4   4   buck/coul/long 15575.63354 0.28372     298.08389  25
+pair_coeff 4	5	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 4	6	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 4	7	buck/coul/long 15575.63354	0.283716667	298.0838881 25
+pair_coeff 4	8	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 4	9	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 4	10	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 4	11	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 4	12	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 4	13	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 4	14	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 4	15	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 4	16	buck/coul/long 15575.63354	0.283716667	298.0838881 25
+pair_coeff 4	17	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 4	18	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 5   5   buck/coul/long 2473.87283  0.26625     32.33693  25
+pair_coeff 5	6	buck/coul/long 2473.87283	0.26625	    32.33692792 25
+pair_coeff 5	7	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 5	8	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 5	9	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 5	10	buck/coul/long 2473.87283	0.26625	    32.33692792 25
+pair_coeff 5	11	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 5	12	buck/coul/long 2473.87283	0.26625	    32.33692792 25
+pair_coeff 5	13	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 5	14	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 5	15	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 5	16	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 5	17	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 5	18	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 6   6   buck/coul/long 2473.87283  0.26625     32.33693  25
+pair_coeff 6	7	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 6	8	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 6	9	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 6	10	buck/coul/long 2473.87283	0.26625	32.33692792 25
+pair_coeff 6	11	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 6	12	buck/coul/long 2473.87283	0.26625	32.33692792 25
+pair_coeff 6	13	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 6	14	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 6	15	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 6	16	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 6	17	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 6    18	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 7   7   buck/coul/long 15575.63354 0.28372     298.08389  25
+pair_coeff 7	8	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 7	9	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 7	10	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 7	11	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 7	12	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 7	13	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 7	14	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 7	15	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 7	16	buck/coul/long 15575.63354	0.283716667	298.0838881 25
+pair_coeff 7	17	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 7	18	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 8   8   buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 8	9	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 8	10	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 8	11	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 8	12	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 8	13	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 8	14	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 8	15	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 8	16	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 8	17	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 8	18	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 9   9   buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 9	10	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 9	11	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 9	12	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 9	13	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 9	14	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 9	15	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 9	16	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 9	17	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 9	18	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 10  10  buck/coul/long 2473.87283  0.26625     32.33693  25
+pair_coeff 10	11	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 10	12	buck/coul/long 2473.87283	0.26625	    32.33692792 25
+pair_coeff 10	13	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 10	14	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 10	15	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 10	16	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 10	17	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 10	18	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 11  11  buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 11	12	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 11	13	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 11	14	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 11	15	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 11	16	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 11	17	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 11	18	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 12  12  buck/coul/long 2473.87283  0.26625     32.33693  25
+pair_coeff 12	13	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 12	14	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 12	15	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 12	16	buck/coul/long 6207.425925	0.274844615	98.17900591 25
+pair_coeff 12	17	buck/coul/long 5582.46562	0.285048844	109.8817216 25
+pair_coeff 12   18	buck/coul/long 6187.936314	0.294097826	146.9198273 25
+pair_coeff 13  13  buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 13	14	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 13	15	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 13	16	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 13	17	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 13   18	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 14  14  buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 14	15	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 14	16	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 14	17	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 14	18	buck/coul/long 15477.98066	0.324858333	667.5165842 25
+pair_coeff 15  15  buck/coul/long 12597.22086 0.30518     373.38095  25
+pair_coeff 15	16	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 15	17	buck/coul/long 12597.22086	0.305175	373.3809463 25
+pair_coeff 15	18	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 16  16  buck/coul/long 15575.63354 0.28372     298.08389  25
+pair_coeff 16	17	buck/coul/long 14007.48713	0.294250291	333.6148141 25
+pair_coeff 16	18	buck/coul/long 15526.73033	0.303591376	446.0671908 25
+pair_coeff 17  17 buck/coul/long 12597.22086 0.30518     373.38095  25
+pair_coeff 17	18	buck/coul/long 13963.50747	0.314862894	499.2373923 25
+pair_coeff 18   18   buck/coul/long 15477.98066 0.32486     667.51658  25
+pair_coeff 3 3 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 1 3 hbond/dreiding/lj 10 j 7 2.75 4 9 11 178.6
+pair_coeff 3 4 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 3 7 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 3 15 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 3 16 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 3 17 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 1 7 hbond/dreiding/lj 10 j 7 2.75 4 9 11 178.6
+pair_coeff 4 7 hbond/dreiding/lj 10 j 7 2.75 4 9 11 178.6
+pair_coeff 7 7 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 7 15 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 7 16 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+pair_coeff 7 17 hbond/dreiding/lj 10 i 7 2.75 4 9 11 178.6
+
+set type 1 charge -0.1981
+set type 2 charge -0.04283 
+set type 3 charge -0.3272
+set type 4 charge -0.2932
+set type 5 charge 0.04736
+set type 6 charge 0.04
+set type 7 charge -0.3605
+set type 8 charge 0.06558
+set type 9 charge 0.08490
+set type 10 charge 0.2183
+set type 11 charge -0.004194
+set type 12 charge 0.03299
+set type 13 charge 0.02
+set type 14 charge 0.04
+set type 15 charge -0.2367
+set type 16 charge -0.3605
+set type 17 charge -0.1981
+set type 18 charge -0.04283 
+
+timestep       0.5
+
+
+variable b loop 70
+label loop2
+
+thermo_modify lost ignore
+thermo_modify lost/bond ignore
+fix	       f52 all bond/create 1 14 14 2.2 14 prob 1 100000 iparam 1 13 jparam 1 13 atype 12 dtype 18 itype 1
+run            1
+unfix          f52
+change_box all x scale 0.995 y scale 1 z scale 0.995 remap
+
+min_modify     dmax 0.05
+min_style      hftn
+minimize       1.0e-10 1.0e-10 3000 5000
+
+thermo_modify lost ignore
+thermo_modify lost/bond ignore
+fix		       f5301 all nvt temp 298 298 50 drag 2
+fix            f5302 all momentum 1 linear 1 1 1 angular
+run            1000
+unfix          f5301
+unfix          f5302
+write_data     HT3IDC$b.data pair ij
+next b
+jump HT3-3.in  loop2
+
