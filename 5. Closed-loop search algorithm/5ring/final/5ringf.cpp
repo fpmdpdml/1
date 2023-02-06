@@ -1,0 +1,121 @@
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <sstream>
+#include <cstdlib>
+using namespace std;
+
+short int convertToInt(string s)
+{
+    istringstream i(s);
+    short int x;
+    if(i>>x)
+    return x;
+    return 0;
+}
+
+int main()
+{
+    fstream OpenFile;
+
+    OpenFile.open("C:\\lammps/final/23/4ring/final/2.txt");
+    short int array[11975];
+
+    for (int j=1; j<11975; j++)
+    {
+        string ch;
+        OpenFile>>ch;
+        array[j]=convertToInt(ch);
+    }
+    OpenFile.close();
+
+    short int anew3[39997];
+    short int bnew3[39997];
+    short int cnew3[39997];
+    short int dnew3[39997];
+    short int enew3[39997];
+
+    OpenFile.open("C:\\lammps/final/23/4ring/final/4.txt");
+
+    for (int a=1; a<39997; a++)
+    {
+        string ch1;
+        string ch2;
+        string ch3;
+        string ch4;
+        string ch5;
+
+        OpenFile>>ch1;
+        anew3[a]=convertToInt(ch1);
+        OpenFile>>ch2;
+        bnew3[a]=convertToInt(ch2);
+        OpenFile>>ch3;
+        cnew3[a]=convertToInt(ch3);
+        OpenFile>>ch4;
+        dnew3[a]=convertToInt(ch4);
+        OpenFile>>ch5;
+        enew3[a]=convertToInt(ch5);
+
+    }
+    OpenFile.close();
+
+
+    short int anew4[161];
+    short int bnew4[161];
+    short int cnew4[161];
+    short int dnew4[161];
+    short int enew4[161];
+    short int fnew4[161];
+
+    int index3=1;
+    int index4=1;
+
+
+    for (int index3=1; index3<39997; index3++)
+    {
+        for (int p=1; p<11975; p++)
+        {
+            if ((p%2==1) && enew3[index3]==array[p] && dnew3[index3]!=array[p+1] && bnew3[index3]!=array[p+1] &&  cnew3[index3]!=array[p+1] &&  anew3[index3]==array[p+1])
+            {
+                anew4[index4]=anew3[index3];
+                bnew4[index4]=bnew3[index3];
+                cnew4[index4]=cnew3[index3];
+                dnew4[index4]=dnew3[index3];
+                enew4[index4]=array[p];
+                fnew4[index4]=array[p+1];
+                index4+=1;
+            }
+
+            else if ((p%2==0) && enew3[index3]==array[p] && dnew3[index3]!=array[p-1] && bnew3[index3]!=array[p-1] &&  cnew3[index3]!=array[p-1] &&  anew3[index3]==array[p-1])
+            {
+                anew4[index4]=anew3[index3];
+                bnew4[index4]=bnew3[index3];
+                cnew4[index4]=cnew3[index3];
+                dnew4[index4]=dnew3[index3];
+                enew4[index4]=array[p];
+                fnew4[index4]=array[p-1];
+                index4+=1;
+            }
+        }
+    }
+
+
+
+    fstream Out;
+    Out.open("C:\\lammps/final/23/4ring/final/4f.txt");
+    for (int index1=1; index1<161; index1++)
+    {
+
+       Out<<"topo addbond "<<anew4[index1]<<" "<<bnew4[index1]<<endl;
+        Out<<"topo addbond "<<bnew4[index1]<<" "<<cnew4[index1]<<endl;
+        Out<<"topo addbond "<<cnew4[index1]<<" "<<dnew4[index1]<<endl;
+        Out<<"topo addbond "<<dnew4[index1]<<" "<<enew4[index1]<<endl;
+        Out<<"topo addbond "<<enew4[index1]<<" "<<fnew4[index1]<<endl;
+
+    }
+    Out.close();
+
+    return 0;
+
+}
+
